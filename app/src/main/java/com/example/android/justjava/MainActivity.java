@@ -12,7 +12,7 @@ import java.text.NumberFormat;
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends ActionBarActivity {
-
+    int quantity=2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,21 +20,18 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void increment(View view) {
-        int quantity=5;
+        quantity=quantity+1;
         display(quantity);
-        displayPrice(quantity*5);
     }
     public void decrement(View view) {
-        int quantity=5;
+        quantity=quantity-1;
         display(quantity);
-        displayPrice(quantity*5);
     }
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(1);
-        displayPrice(2*5);
+        displayPrice(quantity*5);
     }
 
     /**
@@ -44,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
     private void display(int number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
-        quantityTextView.setText("has inciado" + number);
+        quantityTextView.setText("" + number);
     }
     /**
      * This method displays the given price on the screen.
